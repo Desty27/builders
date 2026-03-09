@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CornerStone — Web & Digital for Builders & Real Estate</title>
+  <meta name="description" content="CornerStone helps builders and real estate developers win more clients with premium websites, local SEO, immersive project visuals, and VR tours. See live client sites.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Builder page extras ─────────────────────────────────── */
+    .back-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      background: rgba(255,255,255,0.04);
+      transition: background 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+    .back-pill:hover { background: rgba(255,255,255,0.09); border-color: var(--primary); }
+
+    /* Services icon strip */
+    .service-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+    }
+    .service-icon-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: linear-gradient(140deg, rgba(180,208,58,0.04), rgba(58,84,208,0.04));
+      transition: transform 0.22s, border-color 0.22s, box-shadow 0.22s;
+    }
+    .service-icon-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.22);
+    }
+    .service-icon-card .ico { font-size: 32px; line-height: 1; }
+    .service-icon-card h3 { margin: 0; font-size: 17px; }
+    .service-icon-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+
+    /* Demo selector bar */
+    .demo-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .demo-bar label { font-weight: 700; font-size: 14px; white-space: nowrap; }
+    .demo-bar select {
+      flex: 1;
+      min-width: 220px;
+      padding: 9px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 14px;
+      font-family: inherit;
+    }
+    .demo-frame-wrap {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(0,0,0,0.18);
+      position: relative;
+    }
+    .demo-frame-wrap iframe {
+      width: 100%;
+      height: 620px;
+      border: 0;
+      display: block;
+    }
+
+    /* VR / immersive badge */
+    .vr-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      background: linear-gradient(90deg, rgba(58,84,208,0.22), rgba(180,208,58,0.14));
+      border: 1px solid rgba(180,208,58,0.3);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* Why-us prose */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-top: 8px;
+    }
+    .why-item {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      background: linear-gradient(140deg, rgba(180,208,58,0.05), rgba(58,84,208,0.04));
+    }
+    .why-item strong { display: block; margin-bottom: 6px; font-size: 15px; }
+    .why-item p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <div id="smooth-container" data-scroll-container>
+    <div class="trail"></div>
+    <div class="floating one"></div>
+    <div class="floating two"></div>
+    <div class="stripe"></div>
+
+    <!-- ── NAV ─────────────────────────────────────────────────── -->
+    <nav data-scroll-section>
+      <div class="wrap">
+        <div class="brand">
+          <img class="dark-logo" src="assets/logo-dark.svg" alt="CornerStone logo dark">
+          <img class="light-logo" src="assets/logo-light.svg" alt="CornerStone logo light">
+          <span class="brand-name">CornerStone</span>
+        </div>
+        <button class="mobile-hamburger" aria-label="Open menu" aria-expanded="false">
+          <svg width="22" height="16" viewBox="0 0 22 16" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M0 2h22M0 8h22M0 14h22" stroke-linecap="round" />
+          </svg>
+        </button>
+        <div class="site-menu" style="margin-left:16px; display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+          <a class="pill" href="#live-demo" style="margin-right:2px;">Live Client Work</a>
+          <a class="pill" href="#services" style="margin-right:2px;">Services</a>
+          <a class="pill" href="#why" style="margin-right:2px;">Why Us</a>
+          <a class="back-pill" href="https://corner-stone.me/" target="_blank" rel="noopener" title="Main CornerStone website">
+            ↗ corner-stone.me
+          </a>
+        </div>
+        <div class="actions" style="gap:10px; align-items:center; margin-left:auto;">
+          <button class="call-sign" aria-haspopup="dialog" title="Contact">📞 Contact</button>
+          <button class="pill mode-toggle" type="button" aria-pressed="false" aria-label="Toggle color mode" title="Toggle color mode">
+            <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/>
+              <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                <path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/>
+                <path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/>
+                <path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/>
+              </g>
+            </svg>
+            <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ── CONTACT POPUP ─────────────────────────────────────── -->
+    <div id="contact-popup-overlay" class="contact-popup-overlay" aria-hidden="true">
+      <div class="contact-popup" role="dialog" aria-modal="true" aria-labelledby="contact-popup-title">
+        <button id="contact-popup-close" class="close-btn" aria-label="Close">✕</button>
+        <h3 id="contact-popup-title">Contact CornerStone</h3>
+        <p><strong>Phone:</strong> <a href="tel:+916370704148">+91 6370704148</a></p>
+        <p><strong>Email:</strong> <a href="mailto:contact@corner-stone.me">contact@corner-stone.me</a></p>
+        <p><a href="https://forms.gle/LvEvNb67DZYXDyLV6" target="_blank" rel="noopener">Contact us / Book via form</a></p>
+      </div>
+    </div>
+
+    <!-- ── MOBILE MENU ───────────────────────────────────────── -->
+    <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+      <div class="mobile-menu-inner">
+        <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Close menu">✕</button>
+        <nav class="mobile-links">
+          <a href="#live-demo">Live Client Work</a>
+          <a href="#services">Services</a>
+          <a href="#why">Why Us</a>
+          <a href="https://corner-stone.me/pages/websites.html" target="_blank" rel="noopener">Website Dev</a>
+          <a href="https://corner-stone.me/pages/leads.html" target="_blank" rel="noopener">SEO &amp; Leads</a>
+          <a href="https://corner-stone.me/pages/reviews.html" target="_blank" rel="noopener">Reputation</a>
+          <a href="https://corner-stone.me/" target="_blank" rel="noopener">↗ Main Site</a>
+        </nav>
+        <div class="mobile-menu-contact">
+          <a href="tel:+916370704148">+91 6370704148</a>
+          <a href="mailto:contact@corner-stone.me">contact@corner-stone.me</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- mobile hero line (visible on small screens) -->
+    <div class="mobile-hero-line">Build. Show. Sell — Digital for Builders & Real Estate.</div>
+
+    <!-- ── HERO ──────────────────────────────────────────────── -->
+    <header data-scroll-section>
+      <div class="wrap hero">
+        <div>
+          <div class="label">Built for Builders &amp; Realcon</div>
+          <h1 class="reveal-text" style="font-size:clamp(40px,7.5vw,80px);">
+            Your Real Estate Projects <br>,<br>  Online — Beautifully.
+          </h1>
+          <p class="lede">We help builders, developers and real estate firms win more clients with premium project websites, local SEO, immersive photo/video presentations, and interactive VR tours — all under one roof.</p>
+          <div class="actions">
+            <a class="btn" href="#live-demo">See Live Client Work</a>
+            <a class="btn secondary" href="#services">Our Services</a>
+          </div>
+          <!-- Capability pills -->
+          <div style="margin-top:20px; display:flex; flex-wrap:wrap; gap:8px;">
+            <span class="vr-badge">🥽 VR / 360° Tours</span>
+            <span class="chip" style="background:rgba(180,208,58,0.14);">🔍 Local SEO</span>
+            <span class="chip" style="background:rgba(58,84,208,0.14);">🌐 Project Websites</span>
+            <span class="chip" style="background:rgba(255,255,255,0.08);">📸 Immersive Visuals</span>
+          </div>
+        </div>
+
+        <div class="hero-card reveal">
+          <h3>What builders get</h3>
+          <p style="color:var(--muted); margin:0 0 12px;">Fast, result-driven digital presence for every project.</p>
+          <div class="ticker">
+            <div class="ticker-row"><span>Project website that generates qualified leads</span><strong>Live in 48H</strong></div>
+            <div class="ticker-row"><span>Rank on Google for "builder in [your city]"</span><strong>Local SEO</strong></div>
+            <div class="ticker-row"><span>Walk-through your site before it's built</span><strong>VR Tours</strong></div>
+            <div class="ticker-row"><span>Cinematic renders & drone visuals</span><strong>Immersive Visuals</strong></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main data-scroll-section>
+
+      <!-- ── WHAT WE BUILD FOR YOU ─────────────────────────── -->
+      <section id="capabilities" class="anchor-pad">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <div class="label">What We Do</div>
+              <h2>Four ways CornerStone helps builders grow.</h2>
+            </div>
+            <a class="pill" href="#live-demo">See it live ↓</a>
+          </div>
+          <div class="service-strip">
+
+            <div class="service-icon-card reveal">
+              <div class="ico">🌐</div>
+              <div class="chip">Websites</div>
+              <h3>Project & Builder Websites</h3>
+              <p>Fast, phone-first sites for your firm or individual projects — with galleries, floor-plan sections, enquiry forms, and a brand that looks premium on launch day.</p>
+              <a class="btn" href="https://corner-stone.me/pages/websites.html" target="_blank" rel="noopener" style="margin-top:auto; width:fit-content; padding:8px 14px; border-radius:10px; font-size:13px;">Learn more →</a>
+            </div>
+
+            <div class="service-icon-card reveal">
+              <div class="ico">🔍</div>
+              <div class="chip">SEO &amp; Leads</div>
+              <h3>Local SEO &amp; Lead Gen</h3>
+              <p>We get your firm to the top of Google Maps and "builder near me" searches, so qualified buyers and investors find you — not your competitor.</p>
+              <a class="btn" href="https://corner-stone.me/pages/leads.html" target="_blank" rel="noopener" style="margin-top:auto; width:fit-content; padding:8px 14px; border-radius:10px; font-size:13px;">Learn more →</a>
+            </div>
+
+            <div class="service-icon-card reveal">
+              <div class="ico">📸</div>
+              <div class="chip">Visuals</div>
+              <h3>Immersive Project Visuals</h3>
+              <p>Cinematic renders, drone footage, and styled photography that make your properties irresistible — before or after construction is complete.</p>
+              <a class="btn secondary" href="#contact" style="margin-top:auto; width:fit-content; padding:8px 14px; border-radius:10px; font-size:13px;">Enquire →</a>
+            </div>
+
+            <div class="service-icon-card reveal" style="background:linear-gradient(140deg, rgba(58,84,208,0.10), rgba(180,208,58,0.07)); border-color:rgba(180,208,58,0.25);">
+              <div class="ico">🥽</div>
+              <div class="chip" style="background:rgba(58,84,208,0.18);">VR Tours</div>
+              <h3>VR &amp; 360° Property Tours</h3>
+              <p>Let buyers explore your project from their phone or headset before the paint dries — reducing site visits and accelerating buying decisions.</p>
+              <a class="btn secondary" href="#contact" style="margin-top:auto; width:fit-content; padding:8px 14px; border-radius:10px; font-size:13px;">Enquire →</a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ── LIVE CLIENT DEMO ──────────────────────────────── -->
+      <section id="live-demo" class="anchor-pad">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <div class="label">Live Work</div>
+              <h2 class="reveal-text">See our past client websites — live, right here.</h2>
+            </div>
+            <span class="pill">Real client builds</span>
+          </div>
+
+          <div class="demo-bar">
+            <label for="clientSelect">Select a client</label>
+            <select id="clientSelect">
+              <!-- ────────────────────────────────────────────────
+                   ADD YOUR PAST CLIENT URLS BELOW
+                   Format:  <option value="https://clientsite.com">Client Name — Project Type</option>
+                   ──────────────────────────────────────────────── -->
+              <option value="https://mk-one.clove.build/" data-label="MK One — Virtual Tour">MK One — Virtual Tour</option>
+              <option value="https://www.utkarshacapitaltowers.com/" data-label="Utkarsh Capital Towers — Main Website">Utkarsh Capital Towers — Main Website</option>
+              <option value="https://www.royalerealtorsindia.com/" data-label="Royal Realtors India — Main Website">Royal Realtors India — Main Website</option>
+              <option value="https://www.krahejacorphomes.com/project/bengaluruvivarea/" data-label="Kraheja Corca Homes — Main Website">Kraheja Corca Homes — Main Website</option>
+              <!-- TODO: Add past client links here, e.g.:
+              <option value="https://clientone.com">Client One — Villa Project</option>
+              <option value="https://clienttwo.com">Client Two — Commercial Development</option>
+              <option value="https://clientthree.com">Client Three — Apartment Complex</option>
+              -->
+            </select>
+            <button id="openClientNew" class="pill" style="white-space:nowrap;">Open in new tab ↗</button>
+          </div>
+
+          <!-- Browser chrome mock + iframe -->
+          <div class="demo-frame-wrap">
+            <div style="height:38px; background:rgba(0,0,0,0.22); display:flex; align-items:center; padding:0 12px; gap:8px; border-bottom:1px solid var(--border);">
+              <div style="display:flex; gap:5px; align-items:center;">
+                <span style="width:10px;height:10px;background:#ff5f56;border-radius:50%;display:inline-block;"></span>
+                <span style="width:10px;height:10px;background:#ffbd2e;border-radius:50%;display:inline-block;"></span>
+                <span style="width:10px;height:10px;background:#27c93f;border-radius:50%;display:inline-block;"></span>
+              </div>
+              <div id="demoUrlBar" style="flex:1; height:22px; background:rgba(255,255,255,0.06); border-radius:6px; padding:0 10px; display:flex; align-items:center; color:var(--muted); font-size:12px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">
+                https://mk-one.clove.build/
+              </div>
+            </div>
+            <iframe id="clientFrame" src="https://mk-one.clove.build/" title="Client site preview" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+          </div>
+
+          <p style="color:var(--muted); font-size:13px; margin-top:10px;">Note: Some external sites may block embedding due to their own security policies — use "Open in new tab" to view those.</p>
+        </div>
+      </section>
+
+      <!-- ── OUR SERVICES IN DETAIL ────────────────────────── -->
+      <section id="services" class="anchor-pad">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <div class="label">Services</div>
+              <h2>Explore what's included in each service.</h2>
+            </div>
+            <a class="pill" href="#contact">Get a quote</a>
+          </div>
+          <div class="cards">
+            <a class="card reveal" href="https://corner-stone.me/pages/websites.html" target="_blank" rel="noopener">
+              <span class="brand-accent" aria-hidden="true"></span>
+              <div class="chip">Website Development</div>
+              <h3>Project &amp; Firm Websites</h3>
+              <p>Phone-first, SEO-ready project sites with galleries, floor-plans, and one-tap enquiry buttons — launched fast.</p>
+            </a>
+            <a class="card reveal" href="https://corner-stone.me/pages/leads.html" target="_blank" rel="noopener">
+              <span class="brand-accent" aria-hidden="true"></span>
+              <div class="chip">SEO &amp; Local Leads</div>
+              <h3>Get Found on Google</h3>
+              <p>Rank for "builder in [city]" and land in the Maps pack so buyers, investors, and brokers discover you first.</p>
+            </a>
+            <a class="card reveal" href="https://corner-stone.me/pages/reviews.html" target="_blank" rel="noopener">
+              <span class="brand-accent" aria-hidden="true"></span>
+              <div class="chip">Reputation</div>
+              <h3>Reviews &amp; Trust</h3>
+              <p>Collect 5-star reviews from happy homebuyers and handle complaints privately so your Google rating grows.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── WHY CORNERSTONE FOR BUILDERS ─────────────────── -->
+      <section id="why" class="anchor-pad">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <div class="label">Why Us</div>
+              <h2>Builders & developers choose CornerStone because results matter.</h2>
+            </div>
+            <span class="pill">Builder-first focus</span>
+          </div>
+          <div class="why-grid">
+            <div class="why-item reveal">
+              <strong>🏗️ We understand the build cycle</strong>
+              <p>From pre-launch landing pages to post-handover reputation management — we serve you at every stage of a project.</p>
+            </div>
+            <div class="why-item reveal">
+              <strong>📍 Hyper-local SEO expertise</strong>
+              <p>We rank builders in their city, locality, and micro-market — so your firm shows up when investors search nearby projects.</p>
+            </div>
+            <div class="why-item reveal">
+              <strong>🥽 Immersive tech, zero learning curve</strong>
+              <p>VR walk-throughs and 360° tours delivered ready-to-share — your buyers experience the project without needing any technical knowledge.</p>
+            </div>
+            <div class="why-item reveal">
+              <strong>⚡ Speed — from brief to launch</strong>
+              <p>No agency lag. Project websites go live fast. You're never waiting weeks for something that should take hours.</p>
+            </div>
+            <div class="why-item reveal">
+              <strong>📸 Visual storytelling that sells</strong>
+              <p>Renders, drone shots, and styled photography that give buyers an emotional connection to the property before they visit.</p>
+            </div>
+            <div class="why-item reveal">
+              <strong>🤝 One partner, full stack</strong>
+              <p>Website, SEO, visuals, and VR — managed by one team who knows your project, no hand-offs, no finger-pointing.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── PROCESS ────────────────────────────────────────── -->
+      <section id="process" class="anchor-pad">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <div class="label">How We Work</div>
+              <h2>Simple steps to a powerful digital presence.</h2>
+            </div>
+            <span class="pill">Fast &amp; guided</span>
+          </div>
+          <div class="process">
+            <div class="step reveal" data-step="01">
+              <h3>Brief &amp; Strategy</h3>
+              <p>We understand your project, target buyer profile, and launch timeline — then build a tailored digital plan.</p>
+            </div>
+            <div class="step reveal" data-step="02">
+              <h3>Build &amp; Produce</h3>
+              <p>We design the website, plan the SEO, produce visuals, and set up VR tours — in parallel, fast.</p>
+            </div>
+            <div class="step reveal" data-step="03">
+              <h3>Launch &amp; Scale</h3>
+              <p>Go live, connect Google Maps, run review campaigns, and track calls — so enquiries flow from day one.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── CTA ───────────────────────────────────────────── -->
+      <section id="contact" class="anchor-pad">
+        <div class="wrap cta reveal" style="background:linear-gradient(120deg, rgba(58,84,208,0.22), rgba(180,208,58,0.2));">
+          <h3>Ready to take your real estate project digital?</h3>
+          <p>Tell us your project — we'll reply with a plan within one business day.</p>
+          <div class="actions" style="justify-content:center; flex-wrap:wrap;">
+            <a class="btn" href="tel:+916370704148">📞 +91 6370704148</a>
+            <a class="btn" href="mailto:contact@corner-stone.me?subject=Builder%20Project%20Inquiry">contact@corner-stone.me</a>
+            <a class="btn secondary" href="https://forms.gle/LvEvNb67DZYXDyLV6" target="_blank" rel="noopener">📋 Fill the brief form</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ── FOOTER ─────────────────────────────────────────── -->
+    <footer data-scroll-section>
+      <div class="wrap footer-grid">
+        <div>
+          <div class="brand">
+            <img class="dark-logo" src="assets/logo-dark.svg" alt="CornerStone logo dark">
+            <img class="light-logo" src="assets/logo-light.svg" alt="CornerStone logo light">
+            <span class="brand-name">CornerStone</span>
+          </div>
+          <p style="margin:10px 0 0; color:var(--muted);">Digital presence experts for builders &amp; real estate developers.</p>
+          <a href="https://corner-stone.me/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; margin-top:10px; font-size:13px; font-weight:700; color:var(--primary);">↗ Back to corner-stone.me</a>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <a href="mailto:contact@corner-stone.me">contact@corner-stone.me</a><br>
+          <span style="font-weight:700;">+91 6370704148</span>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <a href="https://corner-stone.me/pages/websites.html" target="_blank" rel="noopener">Website Development</a><br>
+          <a href="https://corner-stone.me/pages/leads.html" target="_blank" rel="noopener">SEO &amp; Leads</a><br>
+          <a href="https://corner-stone.me/pages/reviews.html" target="_blank" rel="noopener">Reputation</a><br>
+          <a href="#live-demo">Live Client Work</a>
+        </div>
+        <div>
+          <h4>Site</h4>
+          <a href="#capabilities">What We Do</a><br>
+          <a href="#process">How We Work</a><br>
+          <a href="#why">Why Us</a><br>
+          <a href="https://corner-stone.me/" target="_blank" rel="noopener">Main Site ↗</a>
+        </div>
+      </div>
+    </footer>
+  </div><!-- /smooth-container -->
+
+  <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      var sel    = document.getElementById('clientSelect');
+      var iframe = document.getElementById('clientFrame');
+      var urlBar = document.getElementById('demoUrlBar');
+      var openBtn= document.getElementById('openClientNew');
+
+      function updateFrame() {
+        var url = sel.value;
+        if (iframe) iframe.src = url;
+        if (urlBar) urlBar.textContent = url;
+      }
+
+      if (sel) sel.addEventListener('change', updateFrame);
+
+      if (openBtn) {
+        openBtn.addEventListener('click', function () {
+          var url = sel ? sel.value : '';
+          if (url) window.open(url, '_blank', 'noopener,noreferrer');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
